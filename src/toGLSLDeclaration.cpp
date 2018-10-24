@@ -862,7 +862,7 @@ void ToGLSL::DeclareUBOConstants(const uint32_t ui32BindingPoint, const Constant
 	}
 	else
 	{
-		if (HaveUniformBindingsAndLocations(psContext->psShader->eTargetLanguage, psContext->psShader->extensions, psContext->flags))
+		if (HaveUniformBindings(psContext->psShader->eTargetLanguage, psContext->psShader->extensions, psContext->flags))
 			bformata(glsl, "layout(binding = %d, std140) ", ui32BindingPoint);
 		else
 			bcatcstr(glsl, "layout(std140) ");
