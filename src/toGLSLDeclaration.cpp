@@ -1423,6 +1423,12 @@ static void TranslateResourceTexture(HLSLCrossCompilerContext* psContext, const 
 		psContext->EnableExtension("GL_EXT_shadow_samplers");
 	}
 
+	{
+		char buff[256];
+		sprintf_s(buff, "layout(binding = %i) ", psDecl->asOperands[0].ui32RegisterNumber);
+		bcatcstr(glsl, buff);
+	}
+
 	const ResourceBinding *psBinding = NULL;
 	psShader->sInfo.GetResourceFromBindingPoint(RGROUP_TEXTURE, psDecl->asOperands[0].ui32RegisterNumber, &psBinding);
 	ASSERT(psBinding != NULL);
