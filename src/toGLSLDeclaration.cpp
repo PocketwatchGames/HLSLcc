@@ -244,8 +244,7 @@ static void DeclareInput(
 
 		std::string locationQualifier = "";
 
-		if (HaveInOutLocationQualifier(psContext->psShader->eTargetLanguage) ||
-			((psContext->flags & HLSLCC_FLAG_NVN_TARGET) && HaveLimitedInOutLocationQualifier(psContext->psShader->eTargetLanguage, psContext->psShader->extensions)))
+		if (HaveLimitedInOutLocationQualifier(psContext->psShader->eTargetLanguage, psContext->psShader->extensions))
 		{
 			bool addLocation = false;
 

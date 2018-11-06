@@ -307,9 +307,31 @@ public:
 	// Retrieve the location for a varying with a given name.
 	// If the name doesn't already have an allocated location, allocate one
 	// and store it into the map.
-	inline uint32_t GetVaryingLocation(const std::string &name, SHADER_TYPE eShaderType, bool isInput)
+	inline int GetVaryingLocation(const std::string &name, SHADER_TYPE eShaderType, bool isInput)
 	{
-		int nspace = GetVaryingNamespace(eShaderType, isInput);
+		// NOTE, these have to match RHI.h!
+		if (!strcmp(name.c_str(), "in_POSITION0")) {
+			return 0;
+		} else if (!strcmp(name.c_str(), "in_COLOR0")) {
+			return 1;
+		} else if (!strcmp(name.c_str(), "in_NORMAL0")) {
+			return 2;
+		} else if (!strcmp(name.c_str(), "in_BINORMAL0")) {
+			return 3;
+		} else if (!strcmp(name.c_str(), "in_TANGENT0")) {
+			return 4;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD0")) {
+			return 5;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD1")) {
+			return 6;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD2")) {
+			return 7;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD3")) {
+			return 8;
+		}
+		return -1;
+
+		/*int nspace = GetVaryingNamespace(eShaderType, isInput);
 		VaryingLocations::iterator itr = varyingLocationsMap[nspace].find(name);
 		if (itr != varyingLocationsMap[nspace].end())
 			return itr->second;
@@ -317,7 +339,7 @@ public:
 		uint32_t newKey = nextAvailableVaryingLocation[nspace];
 		nextAvailableVaryingLocation[nspace]++;
 		varyingLocationsMap[nspace].insert(std::make_pair(name, newKey));
-		return newKey;
+		return newKey;*/
 	}
 
 	// Retrieve the binding for a resource (texture, constant buffer, image) with a given name
