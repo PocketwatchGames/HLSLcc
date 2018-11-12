@@ -568,7 +568,22 @@ void ToGLSL::CallBinaryOp(const char* name, Instruction* psInst,
 	{
 		TranslateOperand(&psInst->asOperands[src0], ui32Flags, destMask);
 		bformata(glsl, " %s ", name);
-		TranslateOperand(&psInst->asOperands[src1], ui32Flags, destMask);
+		if (!_stricmp(name, "<<") || !_stricmp(name, ">>")) {
+			// make this work like HLSL where the 5 LSB are used
+			bcatcstr(glsl, "(");
+			auto operand = psInst->asOperands[src1];
+
+			const SHADER_VARIABLE_TYPE requestedType = TypeFlagsToSVTType(ui32Flags);
+			TranslateOperand(&operand, ui32Flags, destMask);
+
+			if ((requestedType == SVT_UINT) || (requestedType == SVT_UINT16) || (requestedType == SVT_UINT8)) {
+				bcatcstr(glsl, " & 31u)");
+			} else {
+				bcatcstr(glsl, " & 31)");
+			}
+		} else {
+			TranslateOperand(&psInst->asOperands[src1], ui32Flags, destMask);
+		}
 	}
 	AddAssignPrologue(needsParenthesis, isEmbedded);
 }
