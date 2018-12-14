@@ -312,22 +312,28 @@ public:
 		// NOTE, these have to match RHI.h!
 		if (!strcmp(name.c_str(), "in_POSITION0")) {
 			return 0;
-		} else if (!strcmp(name.c_str(), "in_COLOR0")) {
+		} else if (!strcmp(name.c_str(), "in_POSITION1")) {
 			return 1;
-		} else if (!strcmp(name.c_str(), "in_NORMAL0")) {
+		} else if (!strcmp(name.c_str(), "in_POSITION2")) {
 			return 2;
-		} else if (!strcmp(name.c_str(), "in_BINORMAL0")) {
+		} else if (!strcmp(name.c_str(), "in_POSITION3")) {
 			return 3;
-		} else if (!strcmp(name.c_str(), "in_TANGENT0")) {
+		} else if (!strcmp(name.c_str(), "in_COLOR0")) {
 			return 4;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD0")) {
+		} else if (!strcmp(name.c_str(), "in_NORMAL0")) {
 			return 5;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD1")) {
+		} else if (!strcmp(name.c_str(), "in_BINORMAL0")) {
 			return 6;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD2")) {
+		} else if (!strcmp(name.c_str(), "in_TANGENT0")) {
 			return 7;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD3")) {
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD0")) {
 			return 8;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD1")) {
+			return 9;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD2")) {
+			return 10;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD3")) {
+			return 11;
 		}
 		return -1;
 
