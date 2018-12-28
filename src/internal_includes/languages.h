@@ -118,7 +118,7 @@ static int HaveUniformBindingsAndLocations(const GLLang eLang,const struct GlExt
 static int HaveUniformBindings(const GLLang eLang, const struct GlExtensions *extensions, unsigned int flags) {
 	
 	if (eLang >= LANG_430 || eLang == LANG_ES_310 || 
-		extensions && ((struct GlExtensions*)extensions)->ARB_shading_language_420pack)
+		(extensions && ((struct GlExtensions*)extensions)->ARB_shading_language_420pack))
 	{
 		return 1;
 	}

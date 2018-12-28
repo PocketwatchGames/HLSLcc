@@ -11,6 +11,11 @@
 #include "internal_includes/Instruction.h"
 #include "internal_includes/toGLSL.h"
 #include <sstream>
+#include <string.h>
+
+#ifndef _MSC_VER
+#define _stricmp strcasecmp
+#endif
 
 using namespace HLSLcc;
 

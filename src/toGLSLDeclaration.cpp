@@ -1432,7 +1432,11 @@ static void TranslateResourceTexture(HLSLCrossCompilerContext* psContext, const 
 
 	{
 		char buff[256];
+#ifdef _MSC_VER
 		sprintf_s(buff, "layout(binding = %i) ", psDecl->asOperands[0].ui32RegisterNumber);
+#else
+		sprintf(buff, "layout(binding = %i) ", psDecl->asOperands[0].ui32RegisterNumber);
+#endif
 		bcatcstr(glsl, buff);
 	}
 
