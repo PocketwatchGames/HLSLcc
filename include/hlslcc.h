@@ -320,26 +320,28 @@ public:
 			return 3;
 		} else if (!strcmp(name.c_str(), "in_COLOR1")) {
 			return 4;
-		} else if (!strcmp(name.c_str(), "in_NORMAL0")) {
+		} else if (!strcmp(name.c_str(), "in_COLOR2")) {
 			return 5;
-		} else if (!strcmp(name.c_str(), "in_NORMAL1")) {
+		} else if (!strcmp(name.c_str(), "in_NORMAL0")) {
 			return 6;
-		} else if (!strcmp(name.c_str(), "in_BINORMAL0")) {
+		} else if (!strcmp(name.c_str(), "in_NORMAL1")) {
 			return 7;
-		} else if (!strcmp(name.c_str(), "in_BINORMAL1")) {
+		} else if (!strcmp(name.c_str(), "in_BINORMAL0")) {
 			return 8;
-		} else if (!strcmp(name.c_str(), "in_TANGENT0")) {
+		} else if (!strcmp(name.c_str(), "in_BINORMAL1")) {
 			return 9;
-		} else if (!strcmp(name.c_str(), "in_TANGENT1")) {
+		} else if (!strcmp(name.c_str(), "in_TANGENT0")) {
 			return 10;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD0")) {
+		} else if (!strcmp(name.c_str(), "in_TANGENT1")) {
 			return 11;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD1")) {
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD0")) {
 			return 12;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD2")) {
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD1")) {
 			return 13;
-		} else if (!strcmp(name.c_str(), "in_TEXCOORD3")) {
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD2")) {
 			return 14;
+		} else if (!strcmp(name.c_str(), "in_TEXCOORD3")) {
+			return 15;
 		}
 		return -1;
 
